@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+#tableout{
+	background-color: gray;
+	width: 100%; 
+	height: 600px;
+}
+
+#tr1{
+	background-color: #80ffff;
+	height: 90%;
+}
+
+#input1{
+	width:1000px; 
+	height:20px;
+	
+}
+
+.content{
+	position:absolute;
+}
+
