@@ -6,16 +6,18 @@
 
 			localStorage.lastname="Smith";
 
-			document.write("intimes: " + localStorage.intimes);
-			if (localStorage.intimes>=0)
+			var iTimes = parseInt(localStorage.intimes);
+			if (iTimes>=0)
 			{
 				localStorage.intimes=localStorage.intimes+1;
 			}
 			else
-				{
-					localStorage.intimes = 0;
-				}
-		</script>
+			{
+				localStorage.intimes = 0;
+			}
+			document.write("iTimes: " + iTimes);
 
-	</body>
-</html>
+			</script>
+
+		</body>
+	</html>
