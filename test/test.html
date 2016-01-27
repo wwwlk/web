@@ -1,14 +1,21 @@
 <!DOCTYPE HTML>
 <html>
-<body>
+	<body>
 
-<script type="text/javascript">
+		<script>
 
-localStorage.lastname="Smith";
-localStorage.intimes=localStorage.intimes+1;
-document.write("intimes: " + localStorage.intimes);
+			localStorage.lastname="Smith";
 
-</script>
+			document.write("intimes: " + localStorage.intimes);
+			if (localStorage.intimes>=0)
+			{
+				localStorage.intimes=localStorage.intimes+1;
+			}
+			else
+				{
+					localStorage.intimes = 0;
+				}
+		</script>
 
-</body>
+	</body>
 </html>
