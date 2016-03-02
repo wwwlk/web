@@ -5,9 +5,44 @@
 <LINK href="favicon.ico" type="image/x-icon" rel=icon>
 <LINK href="favicon.ico" type="image/x-icon" rel="shortcut icon">
 <link type="text/css" rel="stylesheet" href="css/datatable.css" >
-<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
-</script>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="layer_2.1/layer/layer.js"></script>
+
 <a id="refreshpage" href="">刷新</a>
+<script>
+	
+function CurentTime()  
+{   
+    var now = new Date();  
+         
+    var year = now.getFullYear();       //年  
+    var month = now.getMonth() + 1;     //月  
+    var day = now.getDate();            //日  
+         
+    var hh = now.getHours();            //时  
+    var mm = now.getMinutes();          //分  
+    var ss=now.getSeconds();            //秒  
+         
+    var clock = year + "";  
+         
+    if(month < 10) clock += "0";         
+    clock += month + "";  
+         
+    if(day < 10) clock += "0";   
+    clock += day + "";  
+         
+    if(hh < 10) clock += "0";  
+    clock += hh + "";  
+  
+    if (mm < 10) clock += '0';   
+    clock += mm+ "";  
+          
+    if (ss < 10) clock += '0';   
+    clock += ss;  
+  
+    return(clock);   
+}  
+</script>
 
 <script>
 $(document).ready(function(){
@@ -34,33 +69,89 @@ $(document).ready(function(){
           else {
               trColor = "odd-row";
           }
+          
+          var checkStatus="checked='checked'";
+          if ((data[i].donetime).length ==0) 
+					{ 
+						checkStatus="";
+					} 
+
 	        //document.write("id:"+data[i].id+" content:"+data[i].content+" level:"+data[i].level+" intime:"+data[i].intime+" donetime:"+data[i].donetime +"<br\>");  	        
-	        tbBody += "<tr class='" + trColor + "'><td><input type='checkbox' id='row" + i + "' /></td><td>" + data[i].id + "</td>" + "<td>" + data[i].content + "</td>" + "<td>" + data[i].level + "</td>" + "<td style='display:none;'" + data[i].intime + "</td>"+ "<td style='display:none;'" + data[i].donetime + "</td></tr>";
+	        tbBody += "<tr class='" + trColor + "'><td id='col1'><input type='checkbox' class='todolistrow' id='todolistrow" + i + "' " + checkStatus + " /></td><td id='col2'>" + data[i].id + "</td>" + "<td id='col3'>" + data[i].content + "</td>" + "<td id='col4'>" + data[i].level + "</td>" + "<td style='display:none;' id='col5'" + data[i].intime + "</td>"+ "<td style='display:none;' id='col6'" + data[i].donetime + "</td></tr>";
           $("#myTb").append(tbBody);
+          layer.msg('加载完成', {
+					    offset: 0,
+					    shift: 6
+					});
+					
+					
+					//加载完成,鼠标移动高亮
+				 $("#myTb tr").mouseover(function(){     
+				      //如果鼠标移到class为list的表格的tr上时，执行函数 ，给该行添加class  
+				      $(this).addClass("highlight");  
+				  });  
+				  $("#myTb tr").mouseout(function(){     
+				       //当鼠标移出该行时执行函数  ,移除class  
+				      $(this).removeClass("highlight");  
+				  });  
+  
+  
+					//增加单选框事件,绑定的事件要放在ajax请求内
+				  $(".todolistrow").click(function(){
+				  	
+						alert($(this).attr("id"));
+						location=location;
+			
+				  });
       }    
 	})
 	.fail(function (header, status, errorThrown) {
 	      //fail body
-	      alert("数据加载失败");
+	      layer.msg("数据加载失败", {
+				    offset: 0,
+				    shift: 6
+				});
 
 	});
 	
-	//加载完成  
- $("#myTb tbody tr").onmouseover(function(){     
-      //如果鼠标移到class为list的表格的tr上时，执行函数 ，给该行添加class  
-      $(this).addClass("highlight");  
-  });  
-  $("#myTb tbody tr").onmouseout(function(){     
-       //当鼠标移出该行时执行函数  ,移除class  
-      $(this).removeClass("highlight");  
-  });  
+
   
+  //增加按钮点击事件
+  $("#btn").click(function(){
+		$.ajax({
+		      "url": "https://d.apicloud.com/mcm/api/todolist",
+		      "method": "POST",
+		      "cache": false,
+		      "headers": {
+		        "X-APICloud-AppId": "A6901793633537",
+		        "X-APICloud-AppKey": "134a0fa03aa2b4fb84bc45d5f0da4b89d575af67.1456500652256"
+		      },
+		      "data": {
+		        "content": $("#inputStr").val(),
+		        "level": "1",
+		        "intime": CurentTime(),
+		        "donetime": ""
+		      }
+		}).success(function (data, status, header) {
+		      //success body
+		      layer.msg('保存成功', {
+					    offset: 0,
+					    shift: 6
+					});
+		      setTimeout("location=location;",2000);
+					
+		}).fail(function (header, status, errorThrown) {
+		      //fail body
+		      layer.msg("保存失败，请重新保存！", {
+					    offset: 0,
+					    shift: 6
+					});
+		})
+  });
   
-  
-  
+
 });
 </script>
-
 
 
 
@@ -71,10 +162,10 @@ $(document).ready(function(){
   <form id="form1" runat="server">
 
     <div id="divTb">
-    		<input type="text" value="输1入内容" class="form-control"  style="width:80%;" />
-    		<input type="button" class="btn" value="增加"  style="width:10%;" />
+    		<input id="inputStr" type="text" value="输1入内容" class="form-control"  style="width:80%;" />
+    		<input type="button" id="btn" class="btn" value="增加"  style="width:10%;" />
       <table id="myTb" class="table-hover" cellspacing="0">
-      	<tr><th><input type='checkbox' id='row' disabled="disabled" /></th><th>id</th><th>content</th><th>level</th><th style='display:none;'>intime</th><th style='display:none;'>donetime</th></tr>
+      	<tr><th><input type='checkbox' name="interest" id='todolistr' disabled="disabled" /></th><th>id</th><th>content</th><th>level</th><th style='display:none;'>intime</th><th style='display:none;'>donetime</th></tr>
       </table>
     </div>
   </form>
