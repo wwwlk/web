@@ -6,12 +6,12 @@
 <link type="text/css" rel="stylesheet" href="css/datatable.css" >
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
 </script>
-<a id="refreshpage" href="">Ë¢ĞÂ</a>
+<a id="refreshpage" href="">åˆ·æ–°</a>
 
 <script>
 $(document).ready(function(){
 	
-	//²éÑ¯È«²¿¼ÇÂ¼
+	//æŸ¥è¯¢å…¨éƒ¨è®°å½•
 	$.ajax({
 	      "url": "https://d.apicloud.com/mcm/api/todolist?filter=%7B%22order%22%3A%20%5B%22donetime%20ASC%22%2C%22level%20DESC%22%2C%22intime%20DESC%22%5D%7D",
 	      "method": "GET",
@@ -40,17 +40,17 @@ $(document).ready(function(){
 	})
 	.fail(function (header, status, errorThrown) {
 	      //fail body
-	      alert("Êı¾İ¼ÓÔØÊ§°Ü");
+	      alert("æ•°æ®åŠ è½½å¤±è´¥");
 
 	});
 	
-	//¼ÓÔØÍê³É  
+	//åŠ è½½å®Œæˆ  
  $("#myTb tbody tr").onmouseover(function(){     
-      //Èç¹ûÊó±êÒÆµ½classÎªlistµÄ±í¸ñµÄtrÉÏÊ±£¬Ö´ĞĞº¯Êı £¬¸ø¸ÃĞĞÌí¼Óclass  
+      //å¦‚æœé¼ æ ‡ç§»åˆ°classä¸ºlistçš„è¡¨æ ¼çš„trä¸Šæ—¶ï¼Œæ‰§è¡Œå‡½æ•° ï¼Œç»™è¯¥è¡Œæ·»åŠ class  
       $(this).addClass("highlight");  
   });  
   $("#myTb tbody tr").onmouseout(function(){     
-       //µ±Êó±êÒÆ³ö¸ÃĞĞÊ±Ö´ĞĞº¯Êı  ,ÒÆ³ıclass  
+       //å½“é¼ æ ‡ç§»å‡ºè¯¥è¡Œæ—¶æ‰§è¡Œå‡½æ•°  ,ç§»é™¤class  
       $(this).removeClass("highlight");  
   });  
   
@@ -70,8 +70,8 @@ $(document).ready(function(){
   <form id="form1" runat="server">
 
     <div id="divTb">
-    		<input type="text" value="Êä1ÈëÄÚÈİ" class="form-control"  style="width:80%;" />
-    		<input type="button" class="btn" value="Ôö¼Ó"  style="width:10%;" />
+    		<input type="text" value="è¾“1å…¥å†…å®¹" class="form-control"  style="width:80%;" />
+    		<input type="button" class="btn" value="å¢åŠ "  style="width:10%;" />
       <table id="myTb" class="table-hover" cellspacing="0">
       	<tr><th><input type='checkbox' id='row' disabled="disabled" /></th><th>id</th><th>content</th><th>level</th><th style='display:none;'>intime</th><th style='display:none;'>donetime</th></tr>
       </table>
