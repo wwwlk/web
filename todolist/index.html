@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<LINK href="favicon.ico" type="image/x-icon" rel=icon>
+<LINK href="favicon.ico" type="image/x-icon" rel="shortcut icon">
+<link type="text/css" rel="stylesheet" href="css/datatable.css" >
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+</script>
+<a id="refreshpage" href="">刷新</a>
+
+<script>
+$(document).ready(function(){
+	
+	//查询全部记录
+	$.ajax({
+	      "url": "https://d.apicloud.com/mcm/api/todolist?filter=%7B%22order%22%3A%20%5B%22donetime%20ASC%22%2C%22level%20DESC%22%2C%22intime%20DESC%22%5D%7D",
+	      "method": "GET",
+	      "dataType": "json",
+	      "cache": false,
+	      "headers": {
+	        "X-APICloud-AppId": "A6901793633537",
+	        "X-APICloud-AppKey": "134a0fa03aa2b4fb84bc45d5f0da4b89d575af67.1456500652256"
+	      }
+	})
+	.success(function (data, status, header) {
+	      //success body
+	      for(var i in data){   
+          var tbBody = "";
+          var trColor;
+          if (i % 2 == 0) {
+              trColor = "even";
+          }
+          else {
+              trColor = "odd-row";
+          }
+	        //document.write("id:"+data[i].id+" content:"+data[i].content+" level:"+data[i].level+" intime:"+data[i].intime+" donetime:"+data[i].donetime +"<br\>");  	        
+	        tbBody += "<tr class='" + trColor + "'><td><input type='checkbox' id='row" + i + "' /></td><td>" + data[i].id + "</td>" + "<td>" + data[i].content + "</td>" + "<td>" + data[i].level + "</td>" + "<td style='display:none;'" + data[i].intime + "</td>"+ "<td style='display:none;'" + data[i].donetime + "</td></tr>";
+          $("#myTb").append(tbBody);
+      }    
+	})
+	.fail(function (header, status, errorThrown) {
+	      //fail body
+	      alert("数据加载失败");
+
+	});
+	
+	//加载完成  
+ $("#myTb tbody tr").onmouseover(function(){     
+      //如果鼠标移到class为list的表格的tr上时，执行函数 ，给该行添加class  
+      $(this).addClass("highlight");  
+  });  
+  $("#myTb tbody tr").onmouseout(function(){     
+       //当鼠标移出该行时执行函数  ,移除class  
+      $(this).removeClass("highlight");  
+  });  
+  
+  
+  
+  
+});
+</script>
+
+
+
+
+</head>
+<body>
+
+
+  <form id="form1" runat="server">
+
+    <div id="divTb">
+    		<input type="text" value="输1入内容" class="form-control"  style="width:80%;" />
+    		<input type="button" class="btn" value="增加"  style="width:10%;" />
+      <table id="myTb" class="table-hover" cellspacing="0">
+      	<tr><th><input type='checkbox' id='row' disabled="disabled" /></th><th>id</th><th>content</th><th>level</th><th style='display:none;'>intime</th><th style='display:none;'>donetime</th></tr>
+      </table>
+    </div>
+  </form>
+</body>
+</html>
+
