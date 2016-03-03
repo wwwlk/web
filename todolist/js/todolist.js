@@ -1,5 +1,5 @@
 
-//²ÉÓÃÕıÔò±í´ïÊ½»ñÈ¡µØÖ·À¸²ÎÊı£º£¨ Ç¿ÁÒÍÆ¼ö£¬¼ÈÊµÓÃÓÖ·½±ã£¡£©
+//é‡‡ç”¨æ­£åˆ™è¡¨è¾¾å¼è·å–åœ°å€æ å‚æ•°ï¼šï¼ˆ å¼ºçƒˆæ¨èï¼Œæ—¢å®ç”¨åˆæ–¹ä¾¿ï¼ï¼‰
 function GetQueryString(name)
 {
      var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
@@ -7,18 +7,18 @@ function GetQueryString(name)
      if(r!=null)return  unescape(r[2]); return null;
 }
 
-//»ñÈ¡µ±Ç°Ê±¼ä×Ö·û´®	
+//è·å–å½“å‰æ—¶é—´å­—ç¬¦ä¸²	
 function CurentTime()  
 {   
     var now = new Date();  
          
-    var year = now.getFullYear();       //Äê  
-    var month = now.getMonth() + 1;     //ÔÂ  
-    var day = now.getDate();            //ÈÕ  
+    var year = now.getFullYear();       //å¹´  
+    var month = now.getMonth() + 1;     //æœˆ  
+    var day = now.getDate();            //æ—¥  
          
-    var hh = now.getHours();            //Ê±  
-    var mm = now.getMinutes();          //·Ö  
-    var ss=now.getSeconds();            //Ãë  
+    var hh = now.getHours();            //æ—¶  
+    var mm = now.getMinutes();          //åˆ†  
+    var ss=now.getSeconds();            //ç§’  
          
     var clock = year + "";  
          
@@ -42,7 +42,7 @@ function CurentTime()
 
 $(document).ready(function(){
 	
-	//²éÑ¯È«²¿¼ÇÂ¼,Ç°100Ìõ
+	//æŸ¥è¯¢å…¨éƒ¨è®°å½•,å‰100æ¡
 	$.ajax({
 	      "url": "https://d.apicloud.com/mcm/api/todolist?filter=%7B%22order%22%3A+%5B%22donetime+ASC%22%2C%22level+DESC%22%2C%22intime+DESC%22%5D%2C%22limit%22%3A100%7D",
 	      "method": "GET",
@@ -76,24 +76,24 @@ $(document).ready(function(){
           $("#myTb").append(tbBody);
 
       }    
-      layer.msg('¼ÓÔØÍê³É', {
+      layer.msg('åŠ è½½å®Œæˆ', {
 			    offset: 0,
 			    shift: 6
 			});
 			
 			
-			//¼ÓÔØÍê³É,Êó±êÒÆ¶¯¸ßÁÁ
+			//åŠ è½½å®Œæˆ,é¼ æ ‡ç§»åŠ¨é«˜äº®
 		 $("#myTb tr").mouseover(function(){     
-		      //Èç¹ûÊó±êÒÆµ½classÎªlistµÄ±í¸ñµÄtrÉÏÊ±£¬Ö´ĞĞº¯Êı £¬¸ø¸ÃĞĞÌí¼Óclass  
+		      //å¦‚æœé¼ æ ‡ç§»åˆ°classä¸ºlistçš„è¡¨æ ¼çš„trä¸Šæ—¶ï¼Œæ‰§è¡Œå‡½æ•° ï¼Œç»™è¯¥è¡Œæ·»åŠ class  
 		      $(this).addClass("highlight");  
 		  });  
 		  $("#myTb tr").mouseout(function(){     
-		       //µ±Êó±êÒÆ³ö¸ÃĞĞÊ±Ö´ĞĞº¯Êı  ,ÒÆ³ıclass  
+		       //å½“é¼ æ ‡ç§»å‡ºè¯¥è¡Œæ—¶æ‰§è¡Œå‡½æ•°  ,ç§»é™¤class  
 		      $(this).removeClass("highlight");  
 		  });  
 
 
-			//Ôö¼Óµ¥Ñ¡¿òÊÂ¼ş,°ó¶¨µÄÊÂ¼şÒª·ÅÔÚajaxÇëÇóÄÚ
+			//å¢åŠ å•é€‰æ¡†äº‹ä»¶,ç»‘å®šçš„äº‹ä»¶è¦æ”¾åœ¨ajaxè¯·æ±‚å†…
 		  $(".todolistrow").click(function(){
 		  	
 				//alert($(this).attr("id"));
@@ -121,14 +121,14 @@ $(document).ready(function(){
 				      //success body
 				      location=location;
 				}).fail(function (header, status, errorThrown) {
-				      layer.msg("¸üĞÂÊ§°Ü");
+				      layer.msg("æ›´æ–°å¤±è´¥");
 				})
 	
 		  });
 	})
 	.fail(function (header, status, errorThrown) {
 	      //fail body
-	      layer.msg("Êı¾İ¼ÓÔØÊ§°Ü", {
+	      layer.msg("æ•°æ®åŠ è½½å¤±è´¥", {
 				    offset: 0,
 				    shift: 6
 				});
@@ -137,7 +137,7 @@ $(document).ready(function(){
 	
 
   
-  //Ôö¼Ó°´Å¥µã»÷ÊÂ¼ş
+  //å¢åŠ æŒ‰é’®ç‚¹å‡»äº‹ä»¶
   $("#btn").click(function(){
 		$.ajax({
 		      "url": "https://d.apicloud.com/mcm/api/todolist",
@@ -155,7 +155,7 @@ $(document).ready(function(){
 		      }
 		}).success(function (data, status, header) {
 		      //success body
-		      layer.msg('±£´æ³É¹¦', {
+		      layer.msg('ä¿å­˜æˆåŠŸ', {
 					    offset: 0,
 					    shift: 6
 					});
@@ -163,7 +163,7 @@ $(document).ready(function(){
 					
 		}).fail(function (header, status, errorThrown) {
 		      //fail body
-		      layer.msg("±£´æÊ§°Ü£¬ÇëÖØĞÂ±£´æ£¡", {
+		      layer.msg("ä¿å­˜å¤±è´¥ï¼Œè¯·é‡æ–°ä¿å­˜ï¼", {
 					    offset: 0,
 					    shift: 6
 					});

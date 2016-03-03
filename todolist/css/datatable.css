@@ -1,3 +1,5 @@
+
+
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code,
@@ -98,13 +100,13 @@ tr:last-child td.last {
 	-webkit-border-bottom-right-radius:5px; /* Saf3-4 */
 }
 
-/* ¸ßÁÁÏÔÊ¾ */
+/* é«˜äº®æ˜¾ç¤º */
 tr.highlight td {     
-    background:#8dca83; /*Õâ¸ö½«ÊÇÊó±ê¸ßÁÁĞĞµÄ±³¾°É«*/    
+    background:#8dca83; /*è¿™ä¸ªå°†æ˜¯é¼ æ ‡é«˜äº®è¡Œçš„èƒŒæ™¯è‰²*/    
 }
 
 
-/* ÎÄ±¾¿òÑùÊ½ */
+/* æ–‡æœ¬æ¡†æ ·å¼ */
 .mytxt {
     color:#333;
     line-height:normal;
@@ -166,10 +168,10 @@ color: #555;background-color: #FFF;}
 .btn{border:0;padding: 7px 12px 7px 30px;background:#25b2fe url(../css/search.png) no-repeat 15px center;color:#fff;width:85px;border-radius:0;margin-left:0;height:35px;box-sizing: padding-box;}
 
 
-// Ò»¡¢°´Å¥ÑùÊ½ 
+/*  ä¸€ã€æŒ‰é’®æ ·å¼ */
 
 .buttoncss {
-    font-family: "tahoma", "ËÎÌå"; /*www.52css.com*/
+    font-family: "tahoma", "å®‹ä½“"; /*www.52css.com*/
     font-size:9pt; color: #003399;
     border: 1px #003399 solid;
     color:#006699;
@@ -185,10 +187,10 @@ color: #555;background-color: #FFF;}
     height:22px;
 }
 
-//¶ş¡¢À¶É«°´Å¥
+/* äºŒã€è“è‰²æŒ‰é’®*/
 
 .bluebuttoncss {
-    font-family: "tahoma", "ËÎÌå"; /*www.52css.com*/
+    font-family: "tahoma", "å®‹ä½“"; /*www.52css.com*/
     font-size: 9pt; color: #003366;
     border: 0px #93bee2 solid;
     border-bottom: #93bee2 1px solid;
@@ -201,10 +203,10 @@ color: #555;background-color: #FFF;}
     font-style: normal ;
 }
 
-//Èı¡¢ºìÉ«°´Å¥
+/* ä¸‰ã€çº¢è‰²æŒ‰é’®*/
 
 .redbuttoncss {
-    font-family: "tahoma", "ËÎÌå"; /*www.52css.com*/
+    font-family: "tahoma", "å®‹ä½“"; /*www.52css.com*/
     font-size: 9pt; color: #0066cc;
     border: 1px #93bee2 solid;
     border-bottom: #93bee2 1px solid;
@@ -217,10 +219,10 @@ color: #555;background-color: #FFF;}
     font-style: normal ;
 }
 
-//ËÄ¡¢Ñ¡Ôñ°´Å¥
+/* å››ã€é€‰æ‹©æŒ‰é’®*/
 
 .selectbuttoncss{
-    font-family: "tahoma", "ËÎÌå"; /*www.52css.com*/
+    font-family: "tahoma", "å®‹ä½“"; /*www.52css.com*/
     font-size: 9pt; color: #0066cc;
     border: 1px #93bee2 solid;
     border-bottom: #93bee2 1px solid;
@@ -233,10 +235,10 @@ color: #555;background-color: #FFF;}
     font-style: normal ;
 } 
   
-//Îå¡¢ÂÌÉ«°´Å¥
+/* äº”ã€ç»¿è‰²æŒ‰é’®*/
 
 .greenbuttoncss {
-    font-family: "tahoma", "ËÎÌå"; /*www.52css.com*/
+    font-family: "tahoma", "å®‹ä½“"; /*www.52css.com*/
     font-size: 9pt; color: #0066cc;
     border: 1px #93bee2 solid;
     border-bottom: #93bee2 1px solid;
@@ -249,13 +251,13 @@ color: #555;background-color: #FFF;}
     font-style: normal ;
 }
 
-//Áù¡¢Í¼Ïñ°´Å¥
+/* å…­ã€å›¾åƒæŒ‰é’®*/
 
 .imagebutton{
-    cursor: hand;    /*¸Ä±äÊó±êĞÎ×´ www.52css.com*/
+    cursor: hand;    /*æ”¹å˜é¼ æ ‡å½¢çŠ¶ www.52css.com*/
 }
 
-//Æß¡¢Ò³ÃæÕıÎÄ
+/* ä¸ƒã€é¡µé¢æ­£æ–‡*/
 
 body {
     scrollbar-face-color: #ededf3;
@@ -275,7 +277,7 @@ th {
     font-size: 12px;
 }
 
-//°Ë¡¢ÏÂÀ­Ñ¡Ôñ¿ò
+/* å…«ã€ä¸‹æ‹‰é€‰æ‹©æ¡†*/
 
 select{
     border-right: #000000 1px solid;
@@ -287,7 +289,7 @@ select{
     background-color: #f4f4f4;
 }
 
-//¾Å¡¢ÏßÌõÎÄ±¾±à¼­¿ò
+/* ä¹ã€çº¿æ¡æ–‡æœ¬ç¼–è¾‘æ¡†*/
 
 .editbox{
     background: #ffffff;
@@ -300,7 +302,7 @@ select{
     padding: 1px; /*www.52css.com*/
 }
 
-//Ê®¡¢¶àĞĞÎÄ±¾¿ò
+/* åã€å¤šè¡Œæ–‡æœ¬æ¡†*/
 
 .multieditbox{
     background: #f8f8f8;
@@ -315,7 +317,7 @@ select{
     padding: 1px; /*www.52css.com*/
 }
 
-//Ê®Ò»¡¢ÒõÓ°·ç¸ñµÄ±íµ¥
+/* åä¸€ã€é˜´å½±é£æ ¼çš„è¡¨å•*/
 
 .shadow {
     position:absolute;
@@ -327,7 +329,7 @@ select{
     filter : progidximagetransform.microsoft.dropshadow(color=#ff404040,offx=2,offy=2,positives=true);
 }
 
-//Ê®¶ş¡¢Ö»ÏÔÒ»ÌõºáÏßµÄÊäÈë¿ò
+/* åäºŒã€åªæ˜¾ä¸€æ¡æ¨ªçº¿çš„è¾“å…¥æ¡†*/
 
 .logintxt{
     border-right: #ffffff 0px solid;
@@ -338,7 +340,7 @@ select{
     background-color: #ffffff
 }
 
-//Ê®Èı¡¢Ã»ÓĞ±ß¿òµÄÊäÈë¿ò
+/* åä¸‰ã€æ²¡æœ‰è¾¹æ¡†çš„è¾“å…¥æ¡†*/
 
 .noneinput{
     text-align:center;
@@ -350,7 +352,12 @@ select{
     border-bottom-style: none;
 }
 
-//Òş²Ø
+/* éšè—*/
 #myhide{
-    display:none;/*¹Ø¼üÊôĞÔ£¬ÕâÀïµÄÊôĞÔÖµ±íÊ¾Òş²Ø*/
+    display:none;/*å…³é”®å±æ€§ï¼Œè¿™é‡Œçš„å±æ€§å€¼è¡¨ç¤ºéšè—*/
+}
+
+/* éšè—åˆ— */
+a, #col2, #col4, #col5, #col6{
+		display:none !important;
 }
