@@ -1,5 +1,29 @@
 
+function deletetodolist(obj)
+{
+		var idclick=$(obj).parent().parent().find("#col2").text();
+		//alert(idclick);
+		layer.msg(idclick);
+}
+
 //采用正则表达式获取地址栏参数：（ 强烈推荐，既实用又方便！）
+/// 调用方法
+//alert(GetQueryString("参数名1"));
+//alert(GetQueryString("参数名2"));
+//alert(GetQueryString("参数名3"));
+//下面举一个例子:
+//若地址栏URL为：abc.html?id=123&url=http://www.maidq.com
+//那么，但你用上面的方法去调用：alert(GetQueryString("url"));
+//则会弹出一个对话框：内容就是 http://www.maidq.com
+//如果用：alert(GetQueryString("id"));那么弹出的内容就是 123 啦；
+//当然如果你没有传参数的话，比如你的地址是 abc.html 后面没有参数，那强行输出调用结果有的时候会报错：
+//所以我们要加一个判断 ，判断我们请求的参数是否为空，首先把值赋给一个变量：
+//var myurl=GetQueryString("url");
+//if(myurl !=null && myurl.toString().length>1)
+//{
+//   alert(GetQueryString("url"));
+//}
+//这样就不会报错了！
 function GetQueryString(name)
 {
      var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
@@ -66,13 +90,15 @@ $(document).ready(function(){
           }
           
           var checkStatus="checked='checked'";
+          var dellineclass=" id='delline'"
           if ((data[i].donetime).length ==0) 
 					{ 
 						checkStatus="";
+						dellineclass="";
 					} 
 
 	        //document.write("id:"+data[i].id+" content:"+data[i].content+" level:"+data[i].level+" intime:"+data[i].intime+" donetime:"+data[i].donetime +"<br\>");  	        
-	        tbBody += "<tr class='" + trColor + "'><td id='col1'><input type='checkbox' class='todolistrow' id='todolistrow" + i + "' " + checkStatus + " /></td><td id='col2'>" + data[i].id + "</td>" + "<td id='col3'>" + data[i].content + "</td>" + "<td id='col4'>" + data[i].level + "</td>" + "<td style='display:none;' id='col5'" + data[i].intime + "</td>"+ "<td style='display:none;' id='col6'" + data[i].donetime + "</td></tr>";
+	        tbBody += "<tr class='" + trColor + "'" + dellineclass + "><td id='col1'><input type='checkbox' class='todolistrow' id='todolistrow" + i + "' " + checkStatus + " /></td><td id='col2'>" + data[i].id + "</td>" + "<td id='col3'>" + data[i].content + "</td>" + "<td id='col4'>" + data[i].level + "</td>" + "<td style='display:none;' id='col5'" + data[i].intime + "</td>"+ "<td style='display:none;' id='col6'" + data[i].donetime + "</td><td id='col7'><img src='css/delete.png' style='cursor:pointer' alt='删除' border='0' onclick='deletetodolist(this)'/></td></tr>";
           $("#myTb").append(tbBody);
 
       }    
