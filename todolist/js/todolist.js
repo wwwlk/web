@@ -98,7 +98,7 @@ $(document).ready(function(){
 		  	
 				//alert($(this).attr("id"));
 				var idclick=$(this).parent().parent().find("#col2").text();
-				alert($(this).is(':checked'));
+				//alert($(this).is(':checked'));
 				if ($(this).is(':checked')==true)
 				{
 					curDonetime=CurentTime();
